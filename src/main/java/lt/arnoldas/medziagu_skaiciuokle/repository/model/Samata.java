@@ -1,10 +1,11 @@
 package lt.arnoldas.medziagu_skaiciuokle.repository.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "saskaitos")
+@Table(name = "samatos")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -49,4 +50,10 @@ public class Samata {
 
     @Column(name = "turis")
     private Double turis;
+
+    @ManyToOne
+    @JoinColumn(name = "kliento_id", nullable = false)
+    @PrimaryKeyJoinColumn
+    @JsonBackReference
+    private Klientas klientas;
 }

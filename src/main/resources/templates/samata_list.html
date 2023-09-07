@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #A1C2F1;
+        }
+
+        .list-table {
+            border-collapse: collapse;
+        }
+
+        .list-tr-td:hover:not(.head-row) {
+          background: #f8b5b5;
+        }
+
+        .list-tr{
+            background-color: white;
+        }
+
+        .list-th{
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        .list-td{
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .list-th-td {
+          text-align: left;
+          padding: 10px;
+          border: 3px solid #06283D;
+        }
+
+        .samata-table-container{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    </style>
+</head>
+<body>
+<div class="samata-table-container">
+    <table class="list-table">
+        <tr>
+            <div style="text-align: right; margin-bottom: 8px; margin-right: 8px;">
+                <a href="http://localhost:8888/">Home page</a>
+            </div>
+        </tr>
+
+        <tr>
+            <div style="margin-bottom: 32px; margin-top: 32px;">
+                <form action="#" th:action="@{/samatos/search}" th:object="${key_samata}" method="post">
+                    <label>User name:</label>
+                    <input type="text" th:field="${key_samata.struktura}" class="text"/>
+                    <input type="submit" value="Submit" style="background-color: #06283D; color: white;"/>
+                </form>
+            </div>
+        </tr>
+
+        <tr class="list-tr">
+            <th class="list-th list-th-td">Samatos Id</th>
+            <th class="list-th list-th-td">Struktūra</th>
+            <th class="list-th list-th-td">Struktūros aukštis</th>
+            <th class="list-th list-th-td">Struktūros ilgis</th>
+            <th class="list-th list-th-td">Struktūros plotis</th>
+            <th class="list-th list-th-td">Mediaga</th>
+            <th class="list-th list-th-td">Medžiagos aukštis</th>
+            <th class="list-th list-th-td">Medžiagos ilgis</th>
+            <th class="list-th list-th-td">Medžiagos plotis</th>
+            <th class="list-th list-th-td">Vienetai</th>
+            <th class="list-th list-th-td">Plotas</th>
+            <th class="list-th list-th-td">Turis</th>
+
+        </tr>
+        <tr class="list-tr list-tr-td"
+            th:each="samata : ${key_samatos_list}">
+            <td class="list-th-td list-td" th:text="${samata.samatosId}"></td>
+            <td class="list-th-td list-td" th:text="${samata.struktura}"></td>
+            <td class="list-th-td list-td" th:text="${samata.strukturosAukstis}"></td>
+            <td class="list-th-td list-td" th:text="${samata.strukturosIlgis}"></td>
+            <td class="list-th-td list-td" th:text="${samata.strukturosPlotis}"></td>
+            <td class="list-th-td list-td" th:text="${samata.medziaga}"></td>
+            <td class="list-th-td list-td" th:text="${samata.medziagosAukstis}"></td>
+            <td class="list-th-td list-td" th:text="${samata.medziagosIlgis}"></td>
+            <td class="list-th-td list-td" th:text="${samata.medziagosPlotis}"></td>
+            <td class="list-th-td list-td" th:text="${samata.vienetai}"></td>
+            <td class="list-th-td list-td" th:text="${samata.plotas}"></td>
+            <td class="list-th-td list-td" th:text="${samata.turis}"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
