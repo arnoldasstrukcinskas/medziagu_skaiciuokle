@@ -5,10 +5,7 @@ import lt.arnoldas.medziagu_skaiciuokle.service.KlientasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class KlientasController {
@@ -32,6 +29,13 @@ public class KlientasController {
                 klientasService.getKlientasByNameLike(klientas.getKlientoVardas())
         );
         return "klientu_list";
+    }
+
+    @GetMapping(value = "/id/{id}")         // klikinimui ant kliento ir updatinimui
+    public String getKlientas(Model model, @PathVariable String id){
+        Klientas klientas = (Klientas) klientasService.getById(id);
+        model.addAttribute("key_klientas", klientas);
+        return "klientas_create";
     }
 
     // http://localhost:8888/create

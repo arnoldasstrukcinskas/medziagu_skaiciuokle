@@ -46,6 +46,12 @@
         }
 
     </style>
+    <script th:inline="javascript">
+        function rowClicked(id) {
+            window.open("http://localhost:8888/id/" + id, '_self');
+        }
+
+    </script>
 </head>
 <body>
 <div class="customer-table-container">
@@ -75,7 +81,8 @@
             <th class="list-th list-th-td">Šalis</th>
         </tr>
         <tr class="list-tr list-tr-td"
-            th:each="klientas : ${key_klientai_list}">
+            th:each="klientas : ${key_klientai_list}"
+            th:onclick="rowClicked([[${klientas.klientoId}]])">
             <td class="list-th-td list-td" th:text="${klientas.klientoId}"></td>
             <td class="list-th-td list-td" th:text="${klientas.klientoVardas}"></td>
             <td class="list-th-td list-td" th:text="${klientas.klientoPavarde}"></td>

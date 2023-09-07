@@ -15,16 +15,23 @@ public class KlientasService {
     @Autowired
     private KlientasRepository klientasRepository;
 
-    public String save(Klientas klientas){
+    public String save(Klientas klientas){                      // issaugo klienta
         return klientasRepository.save(klientas).getKlientoId();
     }
 
-    public List<Klientas> getAll() {
+    public List<Klientas> getAll() {                           // paima visus klientus
         return (List<Klientas>) klientasRepository.findAll();
     }
 
-    public List<Klientas> getKlientasByNameLike(String name){
+    public List<Klientas> getKlientasByNameLike(String name){       //randa klienta pagal varda
         return klientasRepository.getKlientasByNameLike("%" + name + "%");
     }
 
+    public List<Klientas> getKlientasById(String id) {          //pagal toki pati id randa lista klientu
+        return klientasRepository.getKlientasByIdLike(id);
+    }
+
+    public Klientas getById(String id){                         // pagal tam tikra id randa klienta
+        return klientasRepository.findById(id).get();
+    }
 }
