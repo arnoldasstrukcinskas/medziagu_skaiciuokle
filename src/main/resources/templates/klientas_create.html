@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+                  background-color: #A1C2F1;
+              }
+
+         label{
+                  font-style: italic;
+                  font-size: 16px;
+                  margin-left: 2px;
+              }
+
+          input{
+                  background-color: white;
+                  margin: 0;
+                  margin-bottom: 8px;
+                  border: 3px solid #06283D;
+                  padding: 10px;
+                  font-size: 22px;
+                  }
+
+          .main-container{
+                  position: fixed;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+              }
+
+              .text{
+                  font-size: 18px;
+              }
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <div>
+        <form action="#" th:action="@{/create}" th:object="${key_klientas}" method="post">
+                <div style="text-align: right; margin-bottom: 36px; margin-right: 8px;">
+                    <a href="http://localhost:8888/">Home</a>
+                </div>
+                <div>
+                    <label>Vardas</label>
+                    <input type="text"
+                           th:field="${key_klientas.klientoVardas}"
+                           class="text" style="width: 100%;"/>
+                </div>
+                <div>
+                    <label>Pavardė</label>
+                    <input type="text"
+                           th:field="${key_klientas.klientoPavarde}"
+                           class="text" style="width: 100%;"/>
+                </div>
+                <div>
+                    <label>El. paštas</label>
+                    <input type="text"
+                           th:field="${key_klientas.elPastas}"
+                           class="text" style="width: 100%;"/>
+                </div>
+                <div>
+                    <label>Šalis</label>
+                    <input type="text"
+                           th:field="${key_klientas.salis}"
+                           class="text" style="width: 100%;"/>
+                </div>
+                <div>
+                    <label>Miestas</label>
+                    <input type="text"
+                           th:field="${key_klientas.miestas}"
+                           class="text" style="width: 100%;"/>
+                </div>
+                <div style="text-align: center;">
+                    <input type="hidden" th:field="${key_klientas.klientoId}">
+                    <input type="submit" value="Issaugoti" style="background-color: #06283D; color: white;"/>
+                    <input type="reset" value="Atsaukti" onclick="http://localhost:8888/" style="background-color: #06283D; color: white;"/>
+                </div>
+            </form>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

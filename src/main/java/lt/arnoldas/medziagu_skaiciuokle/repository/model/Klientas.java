@@ -2,6 +2,9 @@ package lt.arnoldas.medziagu_skaiciuokle.repository.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.UuidGenerator;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "klientai")
@@ -13,12 +16,13 @@ import lombok.*;
 public class Klientas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)     //generuoju random id, klientams
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE)     //UUDI kertasi su tipu, praso stringo, o duoda longa
+    @UuidGenerator
     @Column(name = "kliento_id")
-    private Integer klientoId;
+    private String klientoId;
 
     @Column(name = "kliento_vardas")
-    private String klietoVardas;
+    private String klientoVardas;
 
     @Column(name = "kliento_pavarde")
     private String klientoPavarde;

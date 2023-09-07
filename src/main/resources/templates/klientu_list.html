@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #A1C2F1;
+        }
+
+        .list-table {
+            border-collapse: collapse;
+        }
+
+        .list-tr-td:hover:not(.head-row) {
+          background: #f8b5b5;
+        }
+
+        .list-tr{
+            background-color: white;
+        }
+
+        .list-th{
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        .list-td{
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .list-th-td {
+          text-align: left;
+          padding: 10px;
+          border: 3px solid #06283D;
+        }
+
+        .customer-table-container{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    </style>
+</head>
+<body>
+<div class="customer-table-container">
+    <table class="list-table">
+        <tr>
+            <div style="text-align: right; margin-bottom: 8px; margin-right: 8px;">
+                <a href="http://localhost:8888/">Home page</a>
+            </div>
+        </tr>
+
+        <tr>
+            <div style="margin-bottom: 32px; margin-top: 32px;">
+                <form action="#" th:action="@{/klientai}" th:object="${key_klientas}" method="post">
+                    <label>User name:</label>
+                    <input type="text" th:field="${key_klientas.klientoVardas}" class="text"/>
+                    <input type="submit" value="Submit" style="background-color: #06283D; color: white;"/>
+                </form>
+            </div>
+        </tr>
+
+        <tr class="list-tr">
+            <th class="list-th list-th-td">Id</th>
+            <th class="list-th list-th-td">Vardas</th>
+            <th class="list-th list-th-td">Pavardė</th>
+            <th class="list-th list-th-td">El paštas</th>
+            <th class="list-th list-th-td">Miestas</th>
+            <th class="list-th list-th-td">Šalis</th>
+        </tr>
+        <tr class="list-tr list-tr-td"
+            th:each="klientas : ${key_klientai}">
+            <td class="list-th-td list-td" th:text="${klientas.klientoId}"></td>
+            <td class="list-th-td list-td" th:text="${klientas.klientoVardas}"></td>
+            <td class="list-th-td list-td" th:text="${klientas.klientoPavarde}"></td>
+            <td class="list-th-td list-td" th:text="${klientas.elPastas}"></td>
+            <td class="list-th-td list-td" th:text="${klientas.salis}"></td>
+            <td class="list-th-td list-td" th:text="${klientas.miestas}"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
