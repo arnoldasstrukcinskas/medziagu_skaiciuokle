@@ -23,4 +23,8 @@ public class KlientasService {
         return (List<Klientas>) klientasRepository.findAll();
     }
 
+    public List<Klientas> getKlientasByNameLike(String name){
+        return klientasRepository.getKlientasByNameLike("%" + name + "%");
+    }
+
 }

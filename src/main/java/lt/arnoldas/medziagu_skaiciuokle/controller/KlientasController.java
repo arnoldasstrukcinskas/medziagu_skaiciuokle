@@ -16,12 +16,22 @@ public class KlientasController {
     @Autowired
     private KlientasService klientasService;
 
-    // http://localhost:8888/klientai
-    @RequestMapping(value = "/klientai", method = RequestMethod.GET)
+    // http://localhost:8888/search
+    @RequestMapping(value = "/search", method = RequestMethod.GET)      //get all klientai
     public String getKlientai(Model model){
     model.addAttribute("key_klientas", new Klientas());
-    model.addAttribute("key_klientai", klientasService.getAll());
+    model.addAttribute("key_klientai_list", klientasService.getAll());
     return "klientu_list";
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)         // by name
+    public String getKlientai(Model model, @ModelAttribute(value = "key_klientas") Klientas klientas){
+        model.addAttribute("key_klientas", klientas);
+        model.addAttribute(
+                "key_klientai_list",
+                klientasService.getKlientasByNameLike(klientas.getKlientoVardas())
+        );
+        return "klientu_list";
     }
 
     // http://localhost:8888/create

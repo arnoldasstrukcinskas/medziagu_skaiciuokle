@@ -58,7 +58,7 @@
 
         <tr>
             <div style="margin-bottom: 32px; margin-top: 32px;">
-                <form action="#" th:action="@{/klientai}" th:object="${key_klientas}" method="post">
+                <form action="#" th:action="@{/search}" th:object="${key_klientas}" method="post">
                     <label>User name:</label>
                     <input type="text" th:field="${key_klientas.klientoVardas}" class="text"/>
                     <input type="submit" value="Submit" style="background-color: #06283D; color: white;"/>
@@ -75,7 +75,7 @@
             <th class="list-th list-th-td">Šalis</th>
         </tr>
         <tr class="list-tr list-tr-td"
-            th:each="klientas : ${key_klientai}">
+            th:each="klientas : ${key_klientai_list}">
             <td class="list-th-td list-td" th:text="${klientas.klientoId}"></td>
             <td class="list-th-td list-td" th:text="${klientas.klientoVardas}"></td>
             <td class="list-th-td list-td" th:text="${klientas.klientoPavarde}"></td>
