@@ -48,7 +48,7 @@
     </style>
     <script th:inline="javascript">
         function rowClicked(id) {
-            window.open("http://localhost:8888/id/" + id, '_self');
+            window.open("http://localhost:8888/klientas/id/" + id, '_self');
         }
 
     </script>
@@ -64,7 +64,7 @@
 
         <tr>
             <div style="margin-bottom: 32px; margin-top: 32px;">
-                <form action="#" th:action="@{/search}" th:object="${key_klientas}" method="post">
+                <form action="#" th:action="@{/klientas/search}" th:object="${key_klientas}" method="post">
                     <label>User name:</label>
                     <input type="text" th:field="${key_klientas.klientoVardas}" class="text"/>
                     <input type="submit" value="Submit" style="background-color: #06283D; color: white;"/>
