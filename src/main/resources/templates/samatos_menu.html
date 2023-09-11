@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Meniu</title>
+    <style>
+        body {
+            background-color: #A1C2F1;
+        }
+
+        button {
+            border-radius: 15px;
+            background-color: #06283D;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            display: block;
+            font-size: 20px;
+            bottom: 10px;
+            width: 150%;
+            height: 100%;
+            margin-bottom: 8px;
+            transform: translate(-15%, 0%);
+        }
+        .divider{
+            color: #06283D;
+            text-align: center;
+            font-weight: 1000;
+            padding: 15px 32px;
+            border-bottom: 2px solid white;
+        }
+        .menu{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .home{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+        }
+        .choosen-klientas-tr{
+            background-color: black;
+        }
+        .choosen-klientas-th{
+            text-align: left;
+            padding: 5px;
+            border: 3px solid #06283D;
+            color: white;
+        }
+        .choosen-klientas-tr-info{
+        background-color: white;
+        }
+        .choosen-klientas-th-info{
+        text-align: left;
+        padding: 5px;
+        border: 3px solid #06283D;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <table>
+        <tr class = choosen-klientas-tr>
+            <th class="choosen-klientas-th">id</th>
+        </tr>
+        <tr class="choosen-klientas-tr-info">
+            <td class="choosen-klientas-th-info"></td>
+        </tr>
+        <tr class="choosen-klientas-tr">
+            <th class="choosen-klientas-th">Vardas</th>
+            <th class="choosen-klientas-th">Pavarde</th>
+        </tr>
+        <tr class="choosen-klientas-tr-info">
+            <td class="choosen-klientas-th-info"></td>
+            <td class="choosen-klientas-th-info"></td>
+        </tr>
+    </table>
+</div>
+<div class = "menu">
+    <div>
+        <p class="divider">Samatų meniu</p>
+    </div>
+    <div>
+        <button onclick="window.open('http://localhost:8888/klientas/choose')">Sukurti sąmatą</button>         <!--_self padaro, kad atsidarytu tame paciame lange-->
+    </div>
+    <div>
+        <button onclick="window.open('http://localhost:8888/samatos/search', '_self')">Sąmatų sąrašas</button>
+    </div>
+    <div style = "text-align: center">
+        <a href="http://localhost:8888/">Home page</a>
+    </div>
+</div>
+</body>
+</html>

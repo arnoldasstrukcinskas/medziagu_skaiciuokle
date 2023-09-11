@@ -21,23 +21,23 @@ public class SamataController {
     @Autowired
     private KlientasService klientasService;
 
-    // http://localhost:8888/samatos/search
-//    @RequestMapping(value = "/search", method = RequestMethod.GET)          // ikelia visas samatas
-//    public String getSamatos(Model model){
-//        model.addAttribute("key_samata", new Samata());
-//        model.addAttribute("key_samatos_list", samataService.getAll());
-//        return "samata_list";
-//    }
-//
-//    @RequestMapping(value = "/search", method = RequestMethod.POST)         // randa samata pagal struktura
-//    public String getSamatos(Model model, @ModelAttribute(value = "key_samata") Samata samata){
-//        model.addAttribute("key_samata", samata);
-//        model.addAttribute(
-//                "key_samatos_list",
-//                samataService.getSamataByStrukturaLike(samata.getStruktura())
-//        );
-//        return "samata_list";
-//    }
+//    http://localhost:8888/samatos/search
+    @RequestMapping(value = "/search", method = RequestMethod.GET)          // ikelia visas samatas
+    public String getSamatos(Model model){
+        model.addAttribute("key_samata", new Samata());
+        model.addAttribute("key_samatos_list", samataService.getAll());
+        return "samata_list";
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)         // randa samata pagal struktura
+    public String getSamatos(Model model, @ModelAttribute(value = "key_samata") Samata samata){
+        model.addAttribute("key_samata", samata);
+        model.addAttribute(
+                "key_samatos_list",
+                samataService.getSamataByStrukturaLike(samata.getStruktura())
+        );
+        return "samata_list";
+    }
 
     // http://localhost:8888/samatos/create             // sukurti samata !!!!!!!!!!!!keisti urlus
     @RequestMapping(value = "/create/{klientoId}", method = RequestMethod.GET)      //cia kazkas negerai su ikelimu

@@ -60,6 +60,11 @@ public class KlientasController {
         return "klientai_menu";
     }
 
+    @GetMapping(value = "/samatumenu")                // atidaro menu langa
+    private String getSamatuMenu(){
+        return "samatos_menu";
+    }
+
     @RequestMapping(value = "/choose", method = RequestMethod.GET)              // pasirenkam klienta, samatos kurimui
     private String chooseKlientas(Model model){
         model.addAttribute("key_klientas", new Klientas());
