@@ -27,10 +27,6 @@ public class KlientasService {
         return klientasRepository.getKlientasByNameLike("%" + name + "%");
     }
 
-    public List<Klientas> getKlientasById(String id) {          //pagal toki pati id randa lista klientu
-        return klientasRepository.getKlientasByIdLike(id);
-    }
-
     public Klientas getById(String id){                         // pagal tam tikra id randa klienta
         return klientasRepository.findById(id).get();
     }
