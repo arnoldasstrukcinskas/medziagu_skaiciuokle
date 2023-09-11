@@ -8,12 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping(value = "/klientas")
 public class KlientasController {
 
     @Autowired
     private KlientasService klientasService;
 
-    // http://localhost:8888/search
+    // http://localhost:8888/klientas/search
     @RequestMapping(value = "/search", method = RequestMethod.GET)      //get all klientai
     public String getKlientai(Model model){
     model.addAttribute("key_klientas", new Klientas());
@@ -38,7 +39,9 @@ public class KlientasController {
         return "klientas_create";
     }
 
-    // http://localhost:8888/create
+
+
+    // http://localhost:8888/klientas/create
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String saveKlientas(Model model){
         model.addAttribute("key_klientas", new Klientas());
@@ -52,4 +55,8 @@ public class KlientasController {
         return "klientas_create";
     }
 
+    @GetMapping(value = "/menu")                // atidaro menu langa
+    private String getMenu(){
+        return "klientai_menu";
+    }
 }
