@@ -59,4 +59,20 @@ public class KlientasController {
     private String getMenu(){
         return "klientai_menu";
     }
+
+    @RequestMapping(value = "/choose", method = RequestMethod.GET)              // pasirenkam klienta, samatos kurimui
+    private String chooseKlientas(Model model){
+        model.addAttribute("key_klientas", new Klientas());
+        model.addAttribute("key_klientai_list", klientasService.getAll());
+        return "klientas_choose";
+    }
+    @RequestMapping(value = "/choose", method = RequestMethod.POST)         // by name
+    public String chooseKlientai(Model model, @ModelAttribute(value = "key_klientas") Klientas klientas){
+        model.addAttribute("key_klientas", klientas);
+        model.addAttribute(
+                "key_klientai_list",
+                klientasService.getKlientasByNameLike(klientas.getKlientoVardas())
+        );
+        return "klientas_choose";
+    }
 }
