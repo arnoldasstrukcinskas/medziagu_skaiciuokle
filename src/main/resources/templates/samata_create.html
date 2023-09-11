@@ -4,8 +4,142 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+                  background-color: #A1C2F1;
+              }
+
+         label{
+                  font-style: italic;
+                  font-size: 16px;
+                  margin-left: 2px;
+              }
+
+          input{
+                  background-color: white;
+                  margin: 0;
+                  margin-bottom: 8px;
+                  border: 3px solid #06283D;
+                  padding: 10px;
+                  font-size: 22px;
+                  }
+
+          .main-container{
+                  position: fixed;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+              }
+
+              .text{
+                  font-size: 18px;
+              }
+
+
+        .choosen-klientas-tr{
+            background-color: black;
+        }
+        .choosen-klientas-th{
+            text-align: left;
+            padding: 5px;
+            border: 3px solid #06283D;
+            color: white;
+        }
+        .choosen-klientas-tr-info{
+        background-color: white;
+        }
+        .choosen-klientas-th-info{
+        text-align: left;
+        padding: 5px;
+        border: 3px solid #06283D;
+        }
+    </style>
 </head>
 <body>
+
+<div>
+    <table>
+        <tr class = choosen-klientas-tr>
+            <th class="choosen-klientas-th">id</th>
+        </tr>
+        <tr class="choosen-klientas-tr-info">
+            <td class="choosen-klientas-th-info"></td>
+        </tr>
+        <tr class="choosen-klientas-tr">
+            <th class="choosen-klientas-th">Vardas</th>
+            <th class="choosen-klientas-th">Pavarde</th>
+        </tr>
+        <tr class="choosen-klientas-tr-info">
+            <td class="choosen-klientas-th-info"></td>
+            <td class="choosen-klientas-th-info"></td>
+        </tr>
+    </table>
+</div>
+<div class="main-container">
+    <div>
+        <form action="#" th:action="@{'/samatos/create/' + ${key_samata.klientas.klientoId}}" th:object="${key_samata}" method="post">
+            <div style="text-align: right; margin-bottom: 36px; margin-right: 8px;">
+                <a href="http://localhost:8888/">Home</a>
+            </div>
+            <div>
+                <label>Struktūra</label>
+                <input type="text"
+                       th:field="${key_samata.struktura}"
+                       class="text" style="width: 100%;"/>
+            </div>
+            <div>
+                <label>Struktūros aukštis</label>
+                <input type="text"
+                       th:field="${key_samata.strukturosAukstis}"
+                       class="text" style="width: 100%;"/>
+            </div>
+            <div>
+                <label>Struktūros ilgis</label>
+                <input type="text"
+                       th:field="${key_samata.strukturosIlgis}"
+                       class="text" style="width: 100%;"/>
+            </div>
+            <div>
+                <label>Struktūros plotis</label>
+                <input type="text"
+                       th:field="${key_samata.strukturosPlotis}"
+                       class="text" style="width: 100%;"/>
+            </div>
+             <div>
+                <label>Medžiaga</label>
+                <input type="text"
+                       th:field="${key_samata.medziaga}"
+                       class="text" style="width: 100%;"/>
+            </div>
+             <div>
+                <label>Medžiagos aukštis</label>
+                <input type="text"
+                       th:field="${key_samata.medziagosAukstis}"
+                       class="text" style="width: 100%;"/>
+            </div>
+             <div>
+                <label>Medžiagos ilgis</label>
+                <input type="text"
+                       th:field="${key_samata.medziagosIlgis}"
+                       class="text" style="width: 100%;"/>
+            </div>
+             <div>
+                <label>Medžiagos plotis</label>
+                <input type="text"
+                       th:field="${key_samata.medziagosPlotis}"
+                       class="text" style="width: 100%;"/>
+            </div>
+
+            <div style="text-align: center;">
+                <input type="hidden" th:field="${key_samata.samatosId}">
+                <input type="submit" value="Issaugoti" style="background-color: #06283D; color: white;"/>
+                <input type="reset" value="Atsaukti" onclick="http://localhost:8888/" style="background-color: #06283D; color: white;"/>
+            </div>
+        </form>
+        </form>
+    </div>
+</div>
+
 
 </body>
 </html>
