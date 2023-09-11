@@ -56,7 +56,7 @@ public class Samata {
     @JsonBackReference
     private Klientas klientas;
 
-    public Samata(String struktura, Double strukturosAukstis, Double strukturosIlgis, Double strukturosPlotis, String medziaga, Double medziagosIlgis, Double medziagosPlotis, Double medziagosAukstis, Integer vienetai, Double kvadratura, Double kubatura, Klientas klientas) {
+    public Samata(String struktura, Double strukturosAukstis, Double strukturosIlgis, Double strukturosPlotis, String medziaga, Double medziagosIlgis, Double medziagosPlotis, Double medziagosAukstis, Integer vienetai, Klientas klientas) {
         this.struktura = struktura;
         this.strukturosAukstis = strukturosAukstis;
         this.strukturosIlgis = strukturosIlgis;
@@ -66,8 +66,8 @@ public class Samata {
         this.medziagosPlotis = medziagosPlotis;
         this.medziagosAukstis = medziagosAukstis;
         this.vienetai = vienetai;
-        this.kvadratura = kvadratura;
-        this.kubatura = kubatura;
+        this.kvadratura = calculateVienetai();
+        this.kubatura = calculateVienetai();
         this.klientas = klientas;
     }
 
