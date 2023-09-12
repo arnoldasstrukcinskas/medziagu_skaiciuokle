@@ -34,4 +34,10 @@ public class SamataService {
             samataRepository.save(samata);
         }
     }
+
+    public void setCalculations(Samata samata){
+        samata.setKvadratura(samata.calculateMedziagosKvadratura(samata.getMedziagosAukstis(), samata.getMedziagosIlgis()));
+        samata.setKubatura(samata.calculateMedziagosKubatura(samata.getMedziagosAukstis(), samata.getMedziagosIlgis(), samata.getMedziagosPlotis()));
+        samata.setVienetai(samata.calculateVienetai());
+    }
 }

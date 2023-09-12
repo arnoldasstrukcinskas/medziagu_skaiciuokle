@@ -56,7 +56,7 @@ public class Samata {
     @JsonBackReference
     private Klientas klientas;
 
-    public Samata(String struktura, Double strukturosAukstis, Double strukturosIlgis, Double strukturosPlotis, String medziaga, Double medziagosIlgis, Double medziagosPlotis, Double medziagosAukstis, Integer vienetai, Klientas klientas) {
+    public Samata(String struktura, double strukturosAukstis, double strukturosIlgis, double strukturosPlotis, String medziaga, double medziagosIlgis, double medziagosPlotis, double medziagosAukstis, Integer vienetai, double kvadratura, double kubatura, Klientas klientas) {
         this.struktura = struktura;
         this.strukturosAukstis = strukturosAukstis;
         this.strukturosIlgis = strukturosIlgis;
@@ -65,9 +65,9 @@ public class Samata {
         this.medziagosIlgis = medziagosIlgis;
         this.medziagosPlotis = medziagosPlotis;
         this.medziagosAukstis = medziagosAukstis;
+        this.kvadratura = kvadratura;
+        this.kubatura = kubatura;
         this.vienetai = vienetai;
-        this.kvadratura = calculateVienetai();
-        this.kubatura = calculateVienetai();
         this.klientas = klientas;
     }
 
@@ -102,19 +102,17 @@ public class Samata {
         return kubatura;
     }
 
-    public double calculateVienetai(){
+    public Integer calculateVienetai(){
         double strukturosKvadratura = calculateStrukturosKvadratura(this.strukturosAukstis, this.strukturosIlgis);
         double medziagosKvadratura = calculateMedziagosKvadratura(this.medziagosAukstis, this.medziagosIlgis);
         double strukturosKubatura = calculateStrukturosKubatura(this.strukturosAukstis, this.strukturosIlgis, this.strukturosPlotis);
         double medziagosKubatura = calculateMedziagosKubatura(this.medziagosAukstis, this.medziagosIlgis, this.medziagosPlotis);
-        int vienetai = 0;
+        Integer vienetai = null;
         if(strukturosKvadratura != 0) {
             vienetai = (int) (strukturosKvadratura / medziagosKvadratura);
-            vienetai = vienetai + (vienetai * 5 / 100);
         } else {
-            vienetai =(int) (strukturosKubatura / medziagosKubatura);
-            vienetai = vienetai + (vienetai * 5 / 100);
+            vienetai = (int) (strukturosKubatura / medziagosKubatura);
         }
-        return vienetai;
+        return (int) (vienetai + (vienetai * 0.05));
     }
 }
