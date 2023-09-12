@@ -45,6 +45,12 @@
         }
 
     </style>
+    <script th:inline="javascript">
+        function rowClicked(struktura) {
+            window.open("http://localhost:8888/samatos/struktura/" + struktura, '_self');
+        }
+
+    </script>
 </head>
 <body>
 <div class="samata-table-container">
@@ -58,7 +64,7 @@
         <tr>
             <div style="margin-bottom: 32px; margin-top: 32px;">
                 <form action="#" th:action="@{/samatos/search}" th:object="${key_samata}" method="post">
-                    <label>User name:</label>
+                    <label>Struktūra</label>
                     <input type="text" th:field="${key_samata.struktura}" class="text"/>
                     <input type="submit" value="Submit" style="background-color: #06283D; color: white;"/>
                 </form>
@@ -81,7 +87,8 @@
 
         </tr>
         <tr class="list-tr list-tr-td"
-            th:each="samata : ${key_samatos_list}">
+            th:each="samata : ${key_samatos_list}"
+            th:onclick="rowClicked([[${samata.struktura}]])">
             <td class="list-th-td list-td" th:text="${samata.samatosId}"></td>
             <td class="list-th-td list-td" th:text="${samata.struktura}"></td>
             <td class="list-th-td list-td" th:text="${samata.strukturosAukstis}"></td>
