@@ -34,47 +34,10 @@
               .text{
                   font-size: 18px;
               }
-
-
-        .choosen-klientas-tr{
-            background-color: black;
-        }
-        .choosen-klientas-th{
-            text-align: left;
-            padding: 5px;
-            border: 3px solid #06283D;
-            color: white;
-        }
-        .choosen-klientas-tr-info{
-        background-color: white;
-        }
-        .choosen-klientas-th-info{
-        text-align: left;
-        padding: 5px;
-        border: 3px solid #06283D;
-        }
     </style>
 </head>
 <body>
 
-<div>
-    <table>
-        <tr class = choosen-klientas-tr>
-            <th class="choosen-klientas-th">id</th>
-        </tr>
-        <tr class="choosen-klientas-tr-info">
-            <td class="choosen-klientas-th-info"></td>
-        </tr>
-        <tr class="choosen-klientas-tr">
-            <th class="choosen-klientas-th">Vardas</th>
-            <th class="choosen-klientas-th">Pavarde</th>
-        </tr>
-        <tr class="choosen-klientas-tr-info">
-            <td class="choosen-klientas-th-info"></td>
-            <td class="choosen-klientas-th-info"></td>
-        </tr>
-    </table>
-</div>
 <div class="main-container">
     <div>
         <form action="#" th:action="@{'/samatos/create/' + ${key_samata.klientas.klientoId}}" th:object="${key_samata}" method="post">
@@ -84,49 +47,90 @@
             <div>
                 <label>Struktūra</label>
                 <input type="text"
+                       placeholder="Įveskite struktūrą"
                        th:field="${key_samata.struktura}"
                        class="text" style="width: 100%;"/>
             </div>
-            <div>
+            <div th:if="${key_samata.strukturosAukstis != 0.0}">
                 <label>Struktūros aukštis</label>
                 <input type="text"
                        th:field="${key_samata.strukturosAukstis}"
                        class="text" style="width: 100%;"/>
             </div>
-            <div>
+            <div th:if="${key_samata.strukturosAukstis == 0.0}">
+                <label>Struktūros aukštis</label>
+                <input type="text"
+                       placeholder="cm"
+                       class="text" style="width: 100%;"/>
+            </div>
+            <div th:if="${key_samata.strukturosIlgis != 0.0}">
                 <label>Struktūros ilgis</label>
                 <input type="text"
                        th:field="${key_samata.strukturosIlgis}"
                        class="text" style="width: 100%;"/>
             </div>
-            <div>
+            <div th:if="${key_samata.strukturosIlgis == 0.0}">
+                <label>Struktūros aukštis</label>
+                <input type="text"
+                       placeholder="cm"
+                       class="text" style="width: 100%;"/>
+            </div>
+            <div th:if="${key_samata.strukturosPlotis != 0.0}">
                 <label>Struktūros plotis</label>
                 <input type="text"
                        th:field="${key_samata.strukturosPlotis}"
                        class="text" style="width: 100%;"/>
             </div>
+            <div th:if="${key_samata.strukturosPlotis == 0.0}">
+                <label>Struktūros aukštis</label>
+                <input type="text"
+                       placeholder="cm"
+                       class="text" style="width: 100%;"/>
+            </div>
              <div>
                 <label>Medžiaga</label>
                 <input type="text"
+                       placeholder="Įveskite medžiagą"
                        th:field="${key_samata.medziaga}"
                        class="text" style="width: 100%;"/>
             </div>
-             <div>
+             <div th:if="${key_samata.medziagosAukstis != 0.0}">
                 <label>Medžiagos aukštis</label>
                 <input type="text"
+                       placeholder="cm"
                        th:field="${key_samata.medziagosAukstis}"
                        class="text" style="width: 100%;"/>
             </div>
-             <div>
+            <div th:if="${key_samata.medziagosAukstis == 0.0}">
+                <label>Struktūros aukštis</label>
+                <input type="text"
+                       placeholder="cm"
+                       class="text" style="width: 100%;"/>
+            </div>
+             <div th:if="${key_samata.medziagosIlgis != 0.0}">
                 <label>Medžiagos ilgis</label>
                 <input type="text"
+                       placeholder="cm"
                        th:field="${key_samata.medziagosIlgis}"
                        class="text" style="width: 100%;"/>
             </div>
-             <div>
+            <div th:if="${key_samata.medziagosIlgis == 0.0}">
+                <label>Struktūros aukštis</label>
+                <input type="text"
+                       placeholder="cm"
+                       class="text" style="width: 100%;"/>
+            </div>
+             <div th:if="${key_samata.medziagosPlotis != 0.0}">
                 <label>Medžiagos plotis</label>
                 <input type="text"
+                       placeholder="cm"
                        th:field="${key_samata.medziagosPlotis}"
+                       class="text" style="width: 100%;"/>
+            </div>
+            <div th:if="${key_samata.medziagosPlotis == 0.0}">
+                <label>Struktūros aukštis</label>
+                <input type="text"
+                       placeholder="cm"
                        class="text" style="width: 100%;"/>
             </div>
 
