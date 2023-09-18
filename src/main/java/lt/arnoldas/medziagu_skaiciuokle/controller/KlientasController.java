@@ -32,13 +32,12 @@ public class KlientasController {
         return "klientu_list";
     }
 
-    @GetMapping(value = "/id/{id}")         // klikinimui ant kliento ir updatinimui
-    public String getKlientas(Model model, @PathVariable String id){
-        Klientas klientas = (Klientas) klientasService.getById(id);
+    @GetMapping(value = "/id/{klientoId}")             // update klientas
+    public String getKlientas(Model model, @PathVariable String klientoId) {
+        Klientas klientas = klientasService.getById(klientoId);
         model.addAttribute("key_klientas", klientas);
         return "klientas_create";
     }
-
 
 
     // http://localhost:8888/klientas/create
