@@ -1,67 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Medžiagų skaičiuoklė</title>
-    <style>
-        body {
-            background-color: #A1C2F1;
-        }
-
-        button {
-            border-radius: 15px;
-            background-color: #06283D;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            display: inline-block;
-            font-size: 20px;
-            bottom: 10px;
-            width: 100%;
-            height: 100%;
-            margin-bottom: 8px;
-        }
-
-        div{
-            left: 0;
-            right: 0;
-        }
-
-        .menu{
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .empty{
-            font-style: italic;
-            font-size: 12px;
-        }
-
-        .divider{
-            color: #06283D;
-            text-align: center;
-            font-weight: 1000;
-            padding: 15px 32px;
-            border-bottom: 2px solid white;
-        }
-
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medziagu skaiciuokle</title>
+    <link rel="stylesheet" th:href="@{/styles/home.css}">
 </head>
-<body>
-<div class="menu">
-    <div>
-        <div>
-            <p class="divider">Klientai</p>
-        </div>
-        <div>
-            <button onclick="window.open('http://localhost:8888/klientas/menu')">Klientai</button>         <!--_self padaro, kad atsidarytu tame paciame lange-->
-        </div>
-        <div>
+<body class="home-background">
+    <main>
+    <div class="home-title">Medžiagų<br> skaičiuoklė</div>
+        <div class="navigation-bar">
+            <button onclick="window.open('http://localhost:8888/klientas/menu')">Klientai</button>
             <button onclick="window.open('http://localhost:8888/klientas/create', '_self')">Naujas klientas</button>
         </div>
     </div>
-</div>
+    <div>
+        <form action="#">
+        <div>
+            <label>Prisijungimas</label>
+        </div>
+        <div>
+            <label for="email">Elektroninis paštas</label>
+            <input type="text" id="email">
+        </div>
+        <div>
+            <label for="password">Slaptažodis</label>
+            <input type="text" id="password">
+        </div>
+        <div>
+            <input type="submit" value="Prisijungti">
+        </div>
+        </form>
+    </div>
+    </main>
 </body>
 </html>
