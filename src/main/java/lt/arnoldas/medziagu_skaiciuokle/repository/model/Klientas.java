@@ -7,7 +7,6 @@ import org.hibernate.annotations.UuidGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name = "klientai")
@@ -19,7 +18,6 @@ import java.util.UUID;
 public class Klientas {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)     //UUDI kertasi su tipu, praso stringo, o duoda longa
     @UuidGenerator
     @Column(name = "kliento_id")
     private String klientoId;

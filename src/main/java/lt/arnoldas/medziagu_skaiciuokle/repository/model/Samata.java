@@ -44,10 +44,10 @@ public class Samata {
     @Column(name = "vienetai")
     private Integer vienetai;
 
-    @Column(name = "kvadratūra")
+    @Column(name = "kvadratura")
     private double kvadratura;
 
-    @Column(name = "kubatūra")
+    @Column(name = "kubatura")
     private double kubatura;
 
     @ManyToOne
